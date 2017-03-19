@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(void)
+{
+	FILE *fp;
+	int ch;
+
+	fp = fopen("foo.txt ", "r");//这里把w改成r，表示允许读操作
+	if (NULL == fp)
+	{  
+		printf( "Can not open file!\n") ;
+		exit(1) ;     
+	}
+	ch = fgetc(fp);
+
+	while (ch != EOF)  //EOF是文件结束标志
+	{
+		putchar(ch);
+		ch = fgetc(fp);
+	}
+	printf("\n");
+	fclose(fp);
+	return 0;
+}
